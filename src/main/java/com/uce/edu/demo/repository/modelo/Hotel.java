@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,14 +25,16 @@ public class Hotel {
 	@Column(name = "hote_direccion")
 	private String direccion;
 	
-	@OneToMany(mappedBy="hotel")//hotel es el nombre del atributo en la otra tabla
+	//EAGER es muy costoso
+	//@OneToMany(mappedBy="hotel", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="hotel", fetch = FetchType.LAZY)//hotel es el nombre del atributo en la otra tabla
 	private List<Habitacion> habitaciones;//De hotel a habitacion es uno a muchos, se guarda en una coleccion
 	
 	@Override
 	public String toString() {
-		return "Hotel [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", habitaciones=" + habitaciones
-				+ "]";
+		return "Hotel [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + "]";
 	}
+	
 	//SET Y GET
 	public Integer getId() {
 		return id;

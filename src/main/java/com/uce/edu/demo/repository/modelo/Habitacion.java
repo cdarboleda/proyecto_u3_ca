@@ -30,11 +30,13 @@ public class Habitacion {
 	@JoinColumn(name = "habi_id_hotel")//Foreign Key
 	private Hotel hotel;//mappedBy en la tabla maestra
 	
+
 	@Override
 	public String toString() {
 		return "Habitacion [id=" + id + ", numero=" + numero + ", tipo=" + tipo + ", piso=" + piso + ", hotel=" + hotel
 				+ "]";
 	}
+	
 	//SET  Y GET
 	public Integer getId() {
 		return id;
