@@ -27,26 +27,18 @@ public class ProyectoU3CaApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		//INNER
-		logger.info("INNER JOIN");
-		List<Factura> listaFactura = this.facturaService.buscarFacturaInnerJoin();
-		listaFactura.stream().forEach(x -> logger.info("Factura: Fecha: "+ x.getFecha()+" Numero: "+x.getNumero()));
+		//JOIN FETCH
+		logger.info("JOIN FETCH");
+		List<Factura> listaFacturaFetch = this.facturaService.buscarFacturaJoinFetch(15);
+		listaFacturaFetch.stream().forEach(x -> logger.info("Factura: Fecha: "+x.getFecha()+" Numero: "+x.getNumero()+" Detalles: "+ x.getDetalles()));
+		logger.info("\n");
 		
-		List<Factura> listaFactura2 = this.facturaService.buscarFacturaInnerJoin(15);
-		listaFactura2.stream().forEach(x -> logger.info("Factura: Fecha: "+ x.getFecha()+" Numero: "+x.getNumero()));
+		//WHERE
+		logger.info("WHERE");
+		List<Factura> listaFacturaFetch2 = this.facturaService.buscarFacturaJoinWhere(15);
+		listaFacturaFetch2.stream().forEach(x -> logger.info("Factura: Fecha: "+x.getFecha()+" Numero: "+x.getNumero()));
 		
-		//LEFT
-		logger.info("LEFT JOIN");
-		List<Factura> listaFacturaLeft = this.facturaService.buscarFacturaOuterLeftJoin();
-		listaFacturaLeft.stream().forEach(x -> logger.info("Factura: Fecha: "+ x.getFecha()+" Numero: "+x.getNumero()));
-		List<Factura> listaFacturaLeft2 = this.facturaService.buscarFacturaOuterLeftJoin(15);
-		listaFacturaLeft2.stream().forEach(x -> logger.info("Factura: Fecha: "+ x.getFecha()+" Numero: "+x.getNumero()));;
 		
-		//RIGHT
-		logger.info("RIGHT JOIN");
-		List<Factura> listaFacturaRight = this.facturaService.buscarFacturaOuterRightJoin(15);
-		listaFacturaRight.stream().forEach(x -> logger.info("Factura: Fecha: "+ x.getFecha()+" Numero: "+x.getNumero()));
-	
 	}
 
 }

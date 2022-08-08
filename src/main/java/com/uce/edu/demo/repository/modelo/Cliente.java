@@ -34,8 +34,7 @@ public class Cliente {
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", numeroTarjeta=" + numeroTarjeta + ", ciudadano=" + ciudadano + ", facturas="
-				+ facturas + "]";
+		return "Cliente [id=" + id + ", numeroTarjeta=" + numeroTarjeta + ", ciudadano=" + ciudadano;// + ", facturas="+ facturas + "]";
 	}
 
 	//SET Y GET

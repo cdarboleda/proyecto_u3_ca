@@ -37,8 +37,7 @@ public class Detalle {
 
 	@Override
 	public String toString() {
-		return "Detalle [id=" + id + ", cantidad=" + cantidad + ", subtotal=" + subtotal + ", factura=" + factura
-				+ ", producto=" + producto + "]";
+		return "Detalle [id=" + id + ", cantidad=" + cantidad + ", subtotal=" + subtotal + /*", factura=" + factura+ */", producto=" + producto + "]";
 	}
 
 	//SET Y GET
