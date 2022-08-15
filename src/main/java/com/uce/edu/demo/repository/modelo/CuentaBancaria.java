@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,8 +18,9 @@ import javax.persistence.Table;
 public class CuentaBancaria {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "cuba_id_seq")
 	@SequenceGenerator(name = "cuba_id_seq", sequenceName="cuba_id_seq", allocationSize =1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "cuba_id_seq")
+	//@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "cuba_id")
 	private Integer id;
 	@Column(name = "cuba_numero")
@@ -28,10 +30,10 @@ public class CuentaBancaria {
 	@Column(name = "cuba_saldo")
 	private BigDecimal saldo;
 	
-	@OneToMany(mappedBy = "cuentaOrigen")
+	@OneToMany(mappedBy = "cuentaOrigen", fetch = FetchType.LAZY)
 	private List<Transferencia> transferenciasOrigen;
 	
-	@OneToMany(mappedBy = "cuentaDestino")
+	@OneToMany(mappedBy = "cuentaDestino", fetch = FetchType.LAZY)
 	private List<Transferencia> transferenciasDestino;
 	
 	@Override

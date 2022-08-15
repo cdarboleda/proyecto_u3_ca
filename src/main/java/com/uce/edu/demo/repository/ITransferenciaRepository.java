@@ -4,4 +4,5 @@ import com.uce.edu.demo.repository.modelo.Transferencia;
 
 public interface ITransferenciaRepository {
 	public void insertar(Transferencia transferencia);
+	public Transferencia buscarPorNumero(String numero);
 }

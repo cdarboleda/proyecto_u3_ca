@@ -14,9 +14,9 @@ import com.uce.edu.demo.repository.modelo.CuentaBancaria;
 
 @Repository
 @Transactional
-public class CuentaBancariaImpl implements ICuentaBancariaRepository {
+public class CuentaBancariaRepositoryImpl implements ICuentaBancariaRepository {
 	
-	private static final Logger logger = Logger.getLogger(CuentaBancariaImpl.class);
+	private static final Logger logger = Logger.getLogger(CuentaBancariaRepositoryImpl.class);
 
 	@PersistenceContext
 	private EntityManager entityManager;

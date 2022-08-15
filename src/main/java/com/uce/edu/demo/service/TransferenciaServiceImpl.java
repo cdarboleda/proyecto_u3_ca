@@ -25,7 +25,7 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 	
 	@Override
 	@Transactional(value = TxType.REQUIRED)//REQUIRED es por defecto
-	public void realizarTransferencia(String numeroCuentaOrigen, String numeroCuentaDestino, BigDecimal monto) {
+	public void realizarTransferencia(String numero, String numeroCuentaOrigen, String numeroCuentaDestino, BigDecimal monto) {
 		// TODO Auto-generated method stub
 		//0. Buscar las cuentas origen y destino
 		//1. Restar el monto de la cuenta origen
@@ -48,17 +48,10 @@ public class TransferenciaServiceImpl implements ITransferenciaService {
 		transferencia.setCuentaOrigen(ctaOrigen);
 		transferencia.setCuentaDestino(ctaDestino);
 		transferencia.setFecha(LocalDateTime.now());
+		transferencia.setNumero(numero);
 		transferencia.setMonto(monto);
 		//id es secuencia desde la base de datos
 		this.transferenciaRepository.insertar(transferencia);
 		
 	}
-
-	@Override
-	@Transactional(value = TxType.REQUIRED)
-	public void realizarTransferenciaFachada(String numeroCuentaOrigen, String numeroCuentaDestino, BigDecimal monto) {
-		// TODO Auto-generated method stub
-		this.realizarTransferencia(numeroCuentaOrigen, numeroCuentaDestino, monto);
-	}
-
 }

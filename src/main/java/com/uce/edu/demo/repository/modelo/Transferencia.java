@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "Transferencia")
 @Table(name= "transferencia")
 public class Transferencia {
 	
@@ -23,6 +23,9 @@ public class Transferencia {
 	@Column(name = "tran_id")
 	private Integer id;
 	
+	@Column(name = "tran_numero")
+	private String numero;
+
 	@Column(name = "tran_fecha")
 	private LocalDateTime fecha;
 	
@@ -85,6 +88,12 @@ public class Transferencia {
 		this.cuentaOrigen = cuentaOrigen;
 	}
 	
-	
+	public String getNumero() {
+		return numero;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
 	
 }
