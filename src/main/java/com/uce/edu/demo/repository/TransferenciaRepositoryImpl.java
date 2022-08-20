@@ -23,6 +23,7 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository{
 	public void insertar(Transferencia transferencia) {
 		// TODO Auto-generated method stub
 		this.entityManager.persist(transferencia);
+		throw new RuntimeException();
 	}
 
 	@Override
@@ -33,6 +34,4 @@ public class TransferenciaRepositoryImpl implements ITransferenciaRepository{
 		myQuery.setParameter("numero", numero);
 		return myQuery.getSingleResult();
 	}
-	
-
 }
