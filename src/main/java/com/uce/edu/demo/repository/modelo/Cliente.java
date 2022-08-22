@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,19 +20,19 @@ public class Cliente {
 	@SequenceGenerator(name = "clie_id_seq", sequenceName="clie_id_seq", allocationSize =1)
 	private Integer id;
 	
-	@Column(name = "clie_numero_tarjeta")
-	private String numeroTarjeta;
+	@Column(name = "clie_cedula")
+	private String cedula;
 	
-	@OneToOne
-	@JoinColumn(name = "clie_ciud_id")
-	private Ciudadano ciudadano;
+//	@OneToOne
+//	@JoinColumn(name = "clie_ciud_id")
+//	private Ciudadano ciudadano;
 	
 	@OneToMany(mappedBy="cliente")
 	private List<Factura> facturas;
 
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", numeroTarjeta=" + numeroTarjeta + ", ciudadano=" + ciudadano;// + ", facturas="+ facturas + "]";
+		return "Cliente [id=" + id + ", cedula=" + cedula;// + ", ciudadano=" + ciudadano;// + ", facturas="+ facturas + "]";
 	}
 
 	//SET Y GET
@@ -46,21 +44,21 @@ public class Cliente {
 		this.id = id;
 	}
 
-	public String getNumeroTarjeta() {
-		return numeroTarjeta;
+	public String getCedula() {
+		return cedula;
 	}
 
-	public void setNumeroTarjeta(String numeroTarjeta) {
-		this.numeroTarjeta = numeroTarjeta;
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
 	}
 
-	public Ciudadano getCiudadano() {
-		return ciudadano;
-	}
-
-	public void setCiudadano(Ciudadano ciudadano) {
-		this.ciudadano = ciudadano;
-	}
+//	public Ciudadano getCiudadano() {
+//		return ciudadano;
+//	}
+//
+//	public void setCiudadano(Ciudadano ciudadano) {
+//		this.ciudadano = ciudadano;
+//	}
 
 	public List<Factura> getFacturas() {
 		return facturas;

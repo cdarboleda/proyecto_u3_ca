@@ -5,7 +5,9 @@ import java.util.List;
 import com.uce.edu.demo.repository.modelo.Factura;
 
 public interface IFacturaRepository {
-	public Factura consultar(Integer id);
+	public Factura consultar(String numeroFactura);
+	public void insertar(Factura factura);
+	public void actualizar(Factura factura);
 	public List<Factura> buscarFacturaInnerJoin();
 	public List<Factura> buscarFacturaOuterLeftJoin();
 	public List<Factura> buscarFacturaInnerJoin(Integer cantidad);

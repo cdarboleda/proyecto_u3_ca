@@ -3,6 +3,7 @@ package com.uce.edu.demo.repository.modelo;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,8 +21,8 @@ import javax.persistence.Table;
 public class Factura {
 	@Id
 	@Column(name = "fact_id")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "ciud_id_seq")
-	@SequenceGenerator(name = "ciud_id_seq", sequenceName="ciud_id_seq", allocationSize =1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "fact_id_seq")
+	@SequenceGenerator(name = "fact_id_seq", sequenceName="fact_id_seq", allocationSize =1)
 	private Integer id;
 	
 	@Column(name = "fact_fecha")
@@ -34,7 +35,7 @@ public class Factura {
 	@JoinColumn(name = "fact_clie_id")
 	private Cliente cliente;
 	
-	@OneToMany(mappedBy = "factura", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "factura", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Detalle> detalles;
 
 	@Override

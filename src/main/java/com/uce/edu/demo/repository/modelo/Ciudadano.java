@@ -14,8 +14,8 @@ import javax.persistence.Table;
 public class Ciudadano {
 	@Id
 	@Column(name = "ciud_id")
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "ciud_id_seq2")
-	@SequenceGenerator(name = "ciud_id_seq2", sequenceName="ciud_id_seq2", allocationSize =1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "ciud_id_seq")
+	@SequenceGenerator(name = "ciud_id_seq", sequenceName="ciud_id_seq", allocationSize =1)
 	private Integer id;
 	
 	@Column(name = "ciud_nombre")
@@ -24,8 +24,8 @@ public class Ciudadano {
 	@Column(name = "ciud_apellido")
 	private String apellido;
 	
-	@OneToOne(mappedBy = "ciudadano")
-	private Cliente cliente;
+//	@OneToOne(mappedBy = "ciudadano")
+//	private Cliente cliente;
 
 	
 	@Override
@@ -58,13 +58,13 @@ public class Ciudadano {
 		this.apellido = apellido;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+//	public Cliente getCliente() {
+//		return cliente;
+//	}
+//
+//	public void setCliente(Cliente cliente) {
+//		this.cliente = cliente;
+//	}
 	
 	
 }

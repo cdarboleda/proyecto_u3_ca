@@ -2,6 +2,7 @@ package com.uce.edu.demo.repository.modelo;
 
 import java.math.BigDecimal;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,7 @@ public class Detalle {
 	@Column(name = "deta_subtotal")
 	private BigDecimal subtotal;
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "deta_fact_id")
 	private Factura factura;
 	

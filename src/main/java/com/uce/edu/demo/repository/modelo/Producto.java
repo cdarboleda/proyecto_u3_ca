@@ -24,6 +24,9 @@ public class Producto {
 	@Column(name = "prod_nombre")
 	private String nombre;
 	
+	@Column(name = "prod_stock")
+	private Integer stock;
+	
 	@Column(name = "prod_precio")
 	private BigDecimal precio;
 	
@@ -32,7 +35,7 @@ public class Producto {
 
 	@Override
 	public String toString() {
-		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio;// + ", detalles=" + detalles + "]";
+		return "Producto [id=" + id + ", nombre=" + nombre + ", precio=" + precio+ ", stock= "+stock;// + ", detalles=" + detalles + "]";
 	}
 
 	//SET Y GET
@@ -66,6 +69,14 @@ public class Producto {
 
 	public void setDetalles(List<Detalle> detalles) {
 		this.detalles = detalles;
+	}
+
+	public Integer getStock() {
+		return stock;
+	}
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
 	}
 	
 	

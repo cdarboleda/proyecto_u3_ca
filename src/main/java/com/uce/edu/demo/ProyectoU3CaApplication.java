@@ -1,6 +1,7 @@
 package com.uce.edu.demo;
 
-import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.demo.service.ITransferenciaService;
+import com.uce.edu.demo.service.IGestorComprasService;
 
 @SpringBootApplication
 public class ProyectoU3CaApplication implements CommandLineRunner{
@@ -16,7 +17,7 @@ public class ProyectoU3CaApplication implements CommandLineRunner{
 	private static final Logger logger = Logger.getLogger(ProyectoU3CaApplication.class);
 	
 	@Autowired
-	private ITransferenciaService transferenciaService;
+	private IGestorComprasService gestorComprasService;	
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoU3CaApplication.class, args);
@@ -24,9 +25,9 @@ public class ProyectoU3CaApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
-		
-		this.transferenciaService.realizarTransferencia("4542121", "11212131", new BigDecimal(2));
+		//EN la base de datos ya tenemos 3 productos ingresados y un cliente en especifico
+		List<String> listaNombres = Arrays.asList("Yogurt", "Chocolate Nestle", "Cerveza");
+		this.gestorComprasService.registrarCompraProducto("1751146786", "F006", listaNombres);
 	}
 
 }
