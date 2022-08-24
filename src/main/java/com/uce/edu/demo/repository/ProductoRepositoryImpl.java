@@ -18,7 +18,7 @@ public class ProductoRepositoryImpl implements IProductoRepository {
 	private EntityManager entityManager;
 	
 	@Override
-	@Transactional(value = TxType.REQUIRED)//REQUIRED es por defecto
+	@Transactional(value = TxType.MANDATORY)//REQUIRED es por defecto
 	public void actualizar(Producto producto) {
 		// TODO Auto-generated method stub
 		this.entityManager.merge(producto);

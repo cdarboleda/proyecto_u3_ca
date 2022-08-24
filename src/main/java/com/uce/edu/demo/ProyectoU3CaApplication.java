@@ -27,7 +27,7 @@ public class ProyectoU3CaApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		//EN la base de datos ya tenemos 3 productos ingresados y un cliente en especifico
 		List<String> listaNombres = Arrays.asList("Yogurt", "Chocolate Nestle", "Cerveza");
-		this.gestorComprasService.registrarCompraProducto("1751146786", "F006", listaNombres);
+		this.gestorComprasService.registrarCompraProducto("1751146786", "F008", listaNombres);
 	}
 
 }
